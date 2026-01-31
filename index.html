@@ -171,7 +171,7 @@
                     is a deep-learning model trained exclusively on human games to predict the consensus human move in a given context 
                     (i.e., what a player at a specific rating would do), rather than the objective optimal move.</p>
 
-                    <p>I calculated the mean predicted probability across 20,000 moves per grandmaster, stratified by game phase
+                    <p>I calculated the mean predicted probability across 18,000 moves per grandmaster, stratified by game phase
                     (opening/mid/end). I found that a single latent axis explains <strong>~82%</strong> of the variance in human-likeness 
                     scores; higher values on this axis mean more human-typical play in <i>every</i> phase.</p>
                 </div>
@@ -196,12 +196,15 @@
                         sharply from it.</p>
                     <p><strong>3. Identity & Generalization:</strong>
                         I also found that this metric acts as a behavioural 
-                        fingerprint. Using a held-out test set of ~100 unseen games for each of the 55 grandmasters, a simple
+                        fingerprint. Using a held-out test set of 4,500 moves (equivalent to ~100 games) for each of the 55 grandmasters, a simple
                         k-nearest neighbours classifier identifies them 
                         with <strong>~44%</strong> top-5 accuracy (chance ≈ 9%) within
-                        the 3-dimensional human-likeness space. This methodology of using a deep learning model to quantify deviations 
+                        the 3-dimensional human-likeness space. Remarkably, compressing complex behavioural patterns into just
+                        three "human-likeness" scalars preserves enough signal to recover individual identity. </p>
+                        
+                        <p>Beyond chess, this framework for quantifying deviations 
                         from a consensus baseline to capture individual style could generalize to other
-                        domains where characterizing "anomalous" or "typical" behaviour is critical, which aligns with research
+                        domains where characterizing "anomalous" or "typical" behaviour is critical, aligning with research
                         at the Complex Data Lab.</p>
                     </p>
                 </div>
@@ -212,9 +215,9 @@
         <section>
             <h3 style="margin-bottom:6px;">Interactive 3D visualization</h3>
             <div class="muted">
-                Rotate, zoom, and hover to inspect the player manifold. The axes represent human-likeness in the opening,
+                Rotate, zoom, and hover to explore the space. The axes represent human-likeness in the opening,
                 middlegame, and endgame, quantified as the average probability Maia-2 assigned to the moves actually played 
-                by each grandmaster.
+                by each grandmaster (18,000 moves per player).
             </div>
 
             <div class="figure" style="margin-top:10px;">
